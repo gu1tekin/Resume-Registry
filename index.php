@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once "config.php";
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -28,7 +28,7 @@ require_once "config.php";
    <p><a href="login.php">Please Login</a></p>
    <?php
 
-    $stmt = $pdo->query('SELECT * FROM profile');
+    $stmt = $db->query('SELECT * FROM profile');
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
     <table>

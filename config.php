@@ -1,12 +1,15 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "javascript_profiles";
+$db_host = "localhost";
+$db_user = "root";
+$db_password = "";
+$db_name = "javascript_profiles";
 
-// Set DSN
-$dsn = 'mysql:hos='. $host. ';dbname='.$dbname;
-//Create a PDO instance
-$pdo = new PDO($dsn, $user, $password);
+try{
+    $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+}catch(PDOEXCEPTION $e){
+    $e->getMessage();
+}
 
 ?>
